@@ -1,7 +1,8 @@
-package com.example.githubrepo
+package com.example.githubrepo.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.githubrepo.R
 
 class MainActivity : AppCompatActivity() {
 
