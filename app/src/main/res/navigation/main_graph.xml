@@ -19,5 +19,9 @@
         android:id="@+id/reposFragment"
         android:name="com.example.githubrepo.ui.repos.ReposFragment"
         android:label="fragment_repos"
-        tools:layout="@layout/fragment_repos" />
+        tools:layout="@layout/fragment_repos" >
+        <argument
+            android:name="argUser"
+            app:argType="string" />
+    </fragment>
 </navigation>

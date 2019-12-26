@@ -18,25 +18,23 @@ class ReposViewModel @Inject constructor(private val repository: Repository) : V
 
     private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
+    var user: String = ""
+
     private val _repos = MutableLiveData<List<Repo>>()
 
     val repos: LiveData<List<Repo>>
         get() = _repos
 
     init {
-        _repos.value = ArrayList()
+//        _repos.value = repositoryList(user)
     }
 
-//    fun getRepoList(user: String) {
-////        repoLiveData.value?.add(issuePost)
-//        _repos.value = repositoryList(user)
-//    }
-
-
-    fun repositoryList(user: String) {
+    fun repositoryList(user: String): List<Repo> {
+        var repoList = listOf<Repo>()
         viewModelScope.launch {
-            repository.loadRepoList(user)
+            repoList = repository.loadRepoList(user)
         }
+        return repoList
     }
 
 
