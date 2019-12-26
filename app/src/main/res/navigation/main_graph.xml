@@ -10,5 +10,14 @@
         android:id="@+id/userFragment"
         android:name="com.example.githubrepo.ui.user.UserFragment"
         android:label="fragment_user"
-        tools:layout="@layout/fragment_user" />
+        tools:layout="@layout/fragment_user" >
+        <action
+            android:id="@+id/action_userFragment_to_reposFragment"
+            app:destination="@id/reposFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reposFragment"
+        android:name="com.example.githubrepo.ui.repos.ReposFragment"
+        android:label="fragment_repos"
+        tools:layout="@layout/fragment_repos" />
 </navigation>
