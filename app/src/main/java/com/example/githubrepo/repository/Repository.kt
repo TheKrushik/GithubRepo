@@ -12,7 +12,6 @@ import javax.inject.Singleton
 class Repository
 @Inject internal constructor(private val api: GithubService) {
 
-
     suspend fun loadRepoList(user: String): List<Repo> {
         var list: List<Repo> = listOf()
         withContext(Dispatchers.IO) {
@@ -20,6 +19,4 @@ class Repository
         }
         return list
     }
-
-
 }

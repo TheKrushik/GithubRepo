@@ -1,15 +1,10 @@
 package com.example.githubrepo.ui.repos
 
-
 import android.os.Bundle
-import android.util.Log
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.example.githubrepo.R
 import com.example.githubrepo.databinding.FragmentReposBinding
 import com.example.githubrepo.ui.BaseFragment
-import kotlinx.android.synthetic.main.fragment_repos.*
-
 
 class ReposFragment : BaseFragment<ReposViewModel, FragmentReposBinding>() {
 
@@ -22,14 +17,18 @@ class ReposFragment : BaseFragment<ReposViewModel, FragmentReposBinding>() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val user = args.argUser
-        test.text = user
-//        viewModel.user = user
+        dataBinding.lifecycleOwner = this
 
-        viewModel.repos.observe(this, Observer { postcard ->
-            postcard?.let { list ->
-                Log.d("MyTag", list.toString())
-            }
-        })
+        dataBinding.viewModel = viewModel
+
+        dataBinding.recyclerRepo.adapter = RepoAdapter()
+
+        viewModel.getRepoList(args.argUser)
+
+//        viewModel.repos.observe(this, Observer { postcard ->
+//            postcard?.let { list ->
+//                Log.d("MyTag", "onActivityCreated: $list")
+//            }
+//        })
     }
 }

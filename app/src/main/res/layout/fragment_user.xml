@@ -20,6 +20,7 @@
             android:layout_margin="32dp"
             android:hint="@string/text_hint_username"
             android:inputType="textPersonName"
+            android:imeOptions="actionDone"
             app:layout_constraintBottom_toTopOf="@+id/btnConfirm"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

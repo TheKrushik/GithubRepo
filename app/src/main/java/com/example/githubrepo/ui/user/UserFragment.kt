@@ -3,6 +3,7 @@ package com.example.githubrepo.ui.user
 import android.os.Bundle
 import com.example.githubrepo.R
 import com.example.githubrepo.databinding.FragmentUserBinding
+import com.example.githubrepo.extension.hideKeyboard
 import com.example.githubrepo.ui.BaseFragment
 import kotlinx.android.synthetic.main.fragment_user.*
 
@@ -16,6 +17,7 @@ class UserFragment : BaseFragment<UserViewModel, FragmentUserBinding>() {
         super.onActivityCreated(savedInstanceState)
 
         btnConfirm.setOnClickListener {
+            requireContext().hideKeyboard(btnConfirm)
             val userName = etUserName.text.toString()
             navController.navigate(UserFragmentDirections.actionUserFragmentToReposFragment(userName))
         }
