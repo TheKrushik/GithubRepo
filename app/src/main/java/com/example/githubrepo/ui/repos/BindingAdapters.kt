@@ -39,10 +39,12 @@ fun bindingString(textView: TextView, text: String?) {
 @SuppressLint("SimpleDateFormat")
 @BindingAdapter("repoDate")
 fun bindingDate(textView: TextView, text: String?) {
-    val dateformatGitHab = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
-    val date = dateformatGitHab.parse(text)
+    val dateFormatGitHab = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
+    @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+    val date = dateFormatGitHab.parse(text)
 
-    val dateFormat = SimpleDateFormat("yyyy/mm/dd hh:mm:ss")
+    val dateFormat = SimpleDateFormat("yyyy/MM/dd hh:mm:ss")
+    @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
     val strDate: String = dateFormat.format(date)
 
     textView.text = strDate
