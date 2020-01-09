@@ -25,10 +25,5 @@ class ReposFragment : BaseFragment<ReposViewModel, FragmentReposBinding>() {
 
         viewModel.getRepoList(args.argUser)
 
-//        viewModel.repos.observe(this, Observer { postcard ->
-//            postcard?.let { list ->
-//                Log.d("MyTag", "onActivityCreated: $list")
-//            }
-//        })
     }
 }

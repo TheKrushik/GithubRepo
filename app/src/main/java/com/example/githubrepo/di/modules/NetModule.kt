@@ -14,6 +14,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
+import okhttp3.logging.HttpLoggingInterceptor.*
 
 
 @Module(includes = [ViewModelModule::class])
@@ -29,8 +30,7 @@ class NetModule {
     @Singleton
     internal fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().setLevel(
-            if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
-            else HttpLoggingInterceptor.Level.NONE
+            if (BuildConfig.DEBUG) Level.BODY else Level.NONE
         )
     }
 
@@ -47,7 +47,7 @@ class NetModule {
 
     @Provides
     @Singleton
-    internal fun provideRetrofit( okHttpClient: OkHttpClient): Retrofit {
+    internal fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())

@@ -6,6 +6,10 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.example.githubrepo.ui.user.UserViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,6 +25,7 @@
             android:hint="@string/text_hint_username"
             android:inputType="textPersonName"
             android:imeOptions="actionDone"
+            android:text="@={viewModel._userName}"
             app:layout_constraintBottom_toTopOf="@+id/btnConfirm"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
