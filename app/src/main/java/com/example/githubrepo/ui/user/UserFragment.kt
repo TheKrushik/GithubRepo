@@ -29,8 +29,7 @@ class UserFragment : BaseFragment<UserViewModel, FragmentUserBinding>() {
 
         btnConfirm.setOnClickListener {
             requireContext().hideKeyboard(btnConfirm)
-            val userName = name
-            navController.navigate(UserFragmentDirections.actionUserFragmentToReposFragment(userName))
+            navController.navigate(UserFragmentDirections.actionUserFragmentToReposFragment(name))
         }
     }
 }

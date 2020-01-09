@@ -14,10 +14,18 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.githubrepo.R
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-abstract class BaseFragment<V : ViewModel, D : ViewDataBinding> : Fragment() {
+abstract class BaseFragment<V : ViewModel, D : ViewDataBinding> : Fragment(), HasAndroidInjector {
+
+    @Inject
+    lateinit var androidInjector: DispatchingAndroidInjector<Any>
+
+    override fun androidInjector(): AndroidInjector<Any> = androidInjector
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -31,7 +39,9 @@ abstract class BaseFragment<V : ViewModel, D : ViewDataBinding> : Fragment() {
 
     protected abstract fun getViewModel(): Class<V>
 
-    val navController: NavController by lazy { Navigation.findNavController(activity!!, R.id.nav_host_fragment) }
+    val navController: NavController by lazy {
+        Navigation.findNavController(activity!!, R.id.nav_host_fragment)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidSupportInjection.inject(this)
@@ -44,6 +54,4 @@ abstract class BaseFragment<V : ViewModel, D : ViewDataBinding> : Fragment() {
         dataBinding = DataBindingUtil.inflate(inflater, layoutRes, container, false)
         return dataBinding.root
     }
-
-
 }

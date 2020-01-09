@@ -3,7 +3,6 @@ package com.example.githubrepo.di.modules
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.githubrepo.di.ViewModelKey
-import com.example.githubrepo.ui.MainViewModel
 import com.example.githubrepo.ui.repos.ReposViewModel
 import com.example.githubrepo.ui.user.UserViewModel
 import com.example.githubrepo.viewmodel.ViewModelFactory
@@ -13,11 +12,6 @@ import dagger.multibindings.IntoMap
 
 @Module
 abstract class ViewModelModule {
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(MainViewModel::class)
-    internal abstract fun bindMainViewModel(mainViewModel: MainViewModel): ViewModel
 
     @Binds
     @IntoMap
