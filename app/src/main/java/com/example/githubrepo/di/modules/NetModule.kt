@@ -17,7 +17,7 @@ import javax.inject.Singleton
 import okhttp3.logging.HttpLoggingInterceptor.*
 
 
-@Module(includes = [ViewModelModule::class])
+@Module
 class NetModule {
 
     @Provides

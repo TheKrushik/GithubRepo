@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.githubrepo.di.ViewModelKey
 import com.example.githubrepo.ui.repos.ReposViewModel
 import com.example.githubrepo.ui.user.UserViewModel
-import com.example.githubrepo.viewmodel.ViewModelFactory
+import com.example.githubrepo.di.ViewModelFactory
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

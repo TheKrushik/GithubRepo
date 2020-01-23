@@ -2,6 +2,7 @@ package com.example.githubrepo.di
 
 import android.app.Application
 import com.example.githubrepo.App
+import com.example.githubrepo.di.modules.AppModule
 import com.example.githubrepo.di.modules.FragmentModule
 import com.example.githubrepo.di.modules.NetModule
 import dagger.BindsInstance
@@ -13,8 +14,8 @@ import javax.inject.Singleton
 @Component(
     modules = [
         AndroidInjectionModule::class,
-        FragmentModule::class,
-        NetModule::class
+        AppModule::class,
+        FragmentModule::class
     ]
 )
 interface AppComponent {
