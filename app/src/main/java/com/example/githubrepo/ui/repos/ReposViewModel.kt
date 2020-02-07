@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.githubrepo.models.Repo
+import com.example.githubrepo.remote.RequestStatus
 import com.example.githubrepo.repository.Repository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -50,5 +51,3 @@ class ReposViewModel @Inject constructor(private val repository: Repository) : V
         viewModelJob.cancel()
     }
 }
-
-enum class RequestStatus { LOADING, ERROR, DONE }

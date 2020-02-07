@@ -15,7 +15,7 @@ class Repository
     suspend fun loadRepoList(user: String): List<Repo> {
         var list: List<Repo> = listOf()
         withContext(Dispatchers.IO) {
-            list = api.loadReposAsync(user = user).await()
+            list = api.loadReposAsync(user = user)
         }
         return list
     }

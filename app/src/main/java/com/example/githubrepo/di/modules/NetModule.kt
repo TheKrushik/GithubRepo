@@ -5,7 +5,6 @@ import com.example.githubrepo.BuildConfig
 import com.example.githubrepo.remote.GithubService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -51,7 +50,6 @@ class NetModule {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(okHttpClient)
             .build()
     }

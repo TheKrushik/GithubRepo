@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.githubrepo.models.Repo
+import com.example.githubrepo.remote.RequestStatus
 import java.text.SimpleDateFormat
 import java.util.*
 
